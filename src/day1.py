@@ -17,4 +17,3 @@ if __name__ == "__main__":
                 total += fuelRequired
                 fuelRequired = (fuelRequired // 3) - 2
     print('Actual total fuel required is:', total)
-
