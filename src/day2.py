@@ -51,6 +51,6 @@ if __name__ == "__main__":
                     else:
                         print("Something went wrong exiting")
                         exit(1)
-            if (intCodeArr[0] == 19690720):
+            if intCodeArr[0] == 19690720:
                 print('Answer:', 100 * noun + verb)
                 break
