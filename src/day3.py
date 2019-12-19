@@ -9,41 +9,51 @@ if __name__ == "__main__":
     firstWire = [(0,0)]
     for i in firstWirePath:
         direction = i[0:1]
-        distance = int(i[1:]) + 1
+        distance = int(i[1:])
+        currentX = firstWire[-1][0]
+        currentY = firstWire[-1][1]
         if direction == 'U':
-            for y in range(firstWire[-1][1], firstWire[-1][1] + distance):
-                firstWire.append((firstWire[-1][0], y))
+            for y in range(currentY + 1, currentY + 1  + distance):
+                firstWire.append((currentX, y))
         elif direction == 'D':
-            for y in range(firstWire[-1][1], firstWire[-1][1] - distance, -1):
-                firstWire.append((firstWire[-1][0], y))
+            for y in range(currentY - 1, currentY - 1 - distance, -1):
+                firstWire.append((currentX, y))
         elif direction == 'L':
-            for x in range(firstWire[-1][0], firstWire[-1][0] - distance, -1):
-                firstWire.append((x, firstWire[-1][1]))
+            for x in range(currentX - 1, currentX - 1 - distance, -1):
+                firstWire.append((x, currentY))
         else:
-            for x in range(firstWire[-1][0], firstWire[-1][0] + distance):
-                firstWire.append((x, firstWire[-1][1]))
+            for x in range(currentX + 1, currentX + 1 + distance):
+                firstWire.append((x, currentY))
 
     secondWire = [(0,0)]
     for i in secondWirePath:
         direction = i[0:1]
-        distance = int(i[1:]) + 1
+        distance = int(i[1:])
+        currentX = secondWire[-1][0]
+        currentY = secondWire[-1][1]
         if direction == 'U':
-            for y in range(secondWire[-1][1], secondWire[-1][1] + distance):
-                secondWire.append((secondWire[-1][0], y))
+            for y in range(currentY + 1, currentY + 1  + distance):
+                secondWire.append((currentX, y))
         elif direction == 'D':
-            for y in range(secondWire[-1][1], secondWire[-1][1] - distance, -1):
-                secondWire.append((secondWire[-1][0], y))
+            for y in range(currentY - 1, currentY - 1 - distance, -1):
+                secondWire.append((currentX, y))
         elif direction == 'L':
-            for x in range(secondWire[-1][0], secondWire[-1][0] - distance, -1):
-                secondWire.append((x, secondWire[-1][1]))
+            for x in range(currentX - 1, currentX - 1 - distance, -1):
+                secondWire.append((x, currentY))
         else:
-            for x in range(secondWire[-1][0], secondWire[-1][0] + distance):
-                secondWire.append((x, secondWire[-1][1]))
+            for x in range(currentX + 1, currentX + 1 + distance):
+                secondWire.append((x, currentY))
 
     intersections = list(set(firstWire) & set(secondWire))
+    intersections.remove((0, 0))
     distances = []
     for i in intersections:
-        if i != (0,0):
-            distances.append((abs(0 - i[0])) + (abs(0 - i[1])))
+        distances.append((abs(0 - i[0])) + (abs(0 - i[1])))
     print('Manhattan distance to closest intersection is: {}'.format(min(distances)))
+
+    # Part 2
+    steps = []
+    for i in intersections:
+        steps.append(firstWire.index(i) + secondWire.index(i))
+    print('Fewest combined steps to reach an intersection is: {}'.format(min(steps)))
 
