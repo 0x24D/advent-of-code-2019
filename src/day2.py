@@ -14,10 +14,12 @@ if __name__ == "__main__":
             pass
         else:
             if code == 1:
-                intCodeArr[intCodeArr[i + 3]] = intCodeArr[intCodeArr[i + 1]] + intCodeArr[intCodeArr[i + 2]]
+                intCodeArr[intCodeArr[i + 3]] = intCodeArr[intCodeArr[i + 1]
+                                                           ] + intCodeArr[intCodeArr[i + 2]]
                 skipTo = i + 4
             elif code == 2:
-                intCodeArr[intCodeArr[i + 3]] = intCodeArr[intCodeArr[i + 1]] * intCodeArr[intCodeArr[i + 2]]
+                intCodeArr[intCodeArr[i + 3]] = intCodeArr[intCodeArr[i + 1]
+                                                           ] * intCodeArr[intCodeArr[i + 2]]
                 skipTo = i + 4
             elif code == 99:
                 break
@@ -41,10 +43,12 @@ if __name__ == "__main__":
                     pass
                 else:
                     if code == 1:
-                        intCodeArr[intCodeArr[i + 3]] = intCodeArr[intCodeArr[i + 1]] + intCodeArr[intCodeArr[i + 2]]
+                        intCodeArr[intCodeArr[i + 3]] = intCodeArr[intCodeArr[i + 1]
+                                                                   ] + intCodeArr[intCodeArr[i + 2]]
                         skipTo = i + 4
                     elif code == 2:
-                        intCodeArr[intCodeArr[i + 3]] = intCodeArr[intCodeArr[i + 1]] * intCodeArr[intCodeArr[i + 2]]
+                        intCodeArr[intCodeArr[i + 3]] = intCodeArr[intCodeArr[i + 1]
+                                                                   ] * intCodeArr[intCodeArr[i + 2]]
                         skipTo = i + 4
                     elif code == 99:
                         break
